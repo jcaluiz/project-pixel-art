@@ -71,26 +71,42 @@ function colocaCorNosPixels() {
             pixel[index].classList.remove('red');
             pixel[index].classList.remove('blue');
             pixel[index].classList.remove('green');
+            pixel[index].classList.remove('white');
             event.target.classList.add('black');
           } if(red.classList.contains('selected')) {
             pixel[index].classList.remove('black');
             pixel[index].classList.remove('blue');
             pixel[index].classList.remove('green');
+            pixel[index].classList.remove('white');
             event.target.classList.add('red');
           } if(blue.classList.contains('selected')) {
             pixel[index].classList.remove('black');
             pixel[index].classList.remove('red');
             pixel[index].classList.remove('green');
+            pixel[index].classList.remove('white');
             event.target.classList.add('blue');
           } if(green.classList.contains('selected')) {
             pixel[index].classList.remove('black');
             pixel[index].classList.remove('blue');
             pixel[index].classList.remove('red');
+            pixel[index].classList.remove('white');
             event.target.classList.add('green');
           } 
         })
     }
 }
 colocaCorNosPixels()
+
+function clearBoard() {
+    let clearBoard = document.querySelector('#clear-board');
+    let pixel = document.getElementsByClassName('pixel');
+    
+    clearBoard.addEventListener('click', function() {
+    for(let index = 0; index < pixel.length; index += 1) {
+            pixel[index].classList.add('white')
+        }
+    })
+}
+clearBoard();
 
 
