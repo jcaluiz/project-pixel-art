@@ -6,28 +6,32 @@ function createPixel() {
 }
 let button = document.querySelector('#generate-board');
 
-// for (let index = 0; index < 25; index += 1) {
-//   // for(let index2 = 1; index2 < index; index2 += 1) {
-
-
-//   }
-  button.removeEventListener('click', pixelQuantitative)
-
 button.addEventListener('click', () => {
   let input = document.querySelector('#board-size');
-  let pixel = document.getElementsByClassName('pixel');
-  let board = document.querySelector('#pixel-board')
+  let pixel = document.querySelectorAll('pixel');
+  let board = document.getElementById('pixel-board');
+  let section = document.getElementsByTagName('section');
   if (input.value === '') {
     alert("Board inválido!");
   }
-  if(input.value > 4 || input.value < 51)
-  for (let index = 0; index < input.value * input.value - 25; index += 1) {
-    createPixel1(colocaCorNosPixels())
+  if (input.value > 4 || input.value < 51) {
+    let number1 = parseInt(input.value) * parseInt(input.value) - 25;
+    if (number1 < 2500) {
+      for (let index = 0; index < number1; index += 1) {
+        createPixel1(colocaCorNosPixels())
+        // board.style.width = number1 * 2 + 'px';
+        board.style.boxSizing = "border-box"
+      }
+    }
   }
-  if(input.value > 50)
-  for (let index = 0; index < 50 * 50 - 25; index += 1) {
-    createPixel1(colocaCorNosPixels())
-  }
+})
+
+button.addEventListener('click', () => {
+  let input = document.querySelector('#board-size');
+  if (input.value > 50)
+    for (let index = 0; index < 50 * 50 - 25; index += 1) {
+      createPixel1(colocaCorNosPixels())
+    }
 })
 
 function pixelQuantitative() {
@@ -35,12 +39,11 @@ function pixelQuantitative() {
   let pixel = document.getElementsByClassName('pixel');
   let button = document.querySelector('#generate-board');
   let board = document.querySelector('#pixel-board')
-
   function initial() {
     for (let index = 1; index < 26; index += 1) {
       createPixel();
     }
-    board.style.width = "216px"
+    board.style.width = "212px"
   }
   initial()
 
@@ -166,8 +169,8 @@ function pixelAlturaLargura() {
     square.className = 'pixel';
     pixelBoard.appendChild(square);
     for (let index = 0; index < alturaLargura.length; index += 1) {
-      alturaLargura[index].style.height = parseInt(input.value) + 'px';
-      alturaLargura[index].style.width = parseInt(input.value) + 'px';
+      alturaLargura[index].style.height = 5 + 'px';
+      alturaLargura[index].style.width = 5 + 'px';
     }
   }
   let input = document.querySelector('#board-size');
@@ -177,11 +180,10 @@ function pixelAlturaLargura() {
     let alturaLargura = document.querySelectorAll('.pixel');
     for (let index = 0; index < alturaLargura.length; index += 1) {
       if (parseInt(input.value) > 4 && parseInt(input.value) < 51) {
-        alturaLargura[index].style.height = parseInt(input.value) + 'px';
-        alturaLargura[index].style.width = parseInt(input.value) + 'px';
+        alturaLargura[index].style.height = '5px';
+        alturaLargura[index].style.width = '5px';
       }
     }
   })
 }
 pixelAlturaLargura();
-
