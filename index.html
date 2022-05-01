@@ -13,16 +13,18 @@
     <header>
         <h1 id="title">Paleta de Cores</h1>
     </header>
-    <main>
-        <section id="color-palette">
-            <section class="color black selected"></section>
-            <section class="color red"></section>
-            <section class="color blue"></section>
-            <section class="color green"></section>
-        </section>
+    <section id="color-palette">
+        <section class="color black selected"></section>
+        <section class="color red"></section>
+        <section class="color blue"></section>
+        <section class="color green"></section>
+    </section>
+    <div>
         <button id="clear-board">Limpar</button>
-        <input type="number" id="board-size" min="1" placeholder="Digite um número">
+        <input type="number" id="board-size" min="1" max="50" placeholder="Digite um número">
         <button id="generate-board">VQV</button>
+    </div>
+    <main>
         <section id="pixel-board"></section>
     </main>
     <script src="./script.js"></script>

@@ -1,38 +1,58 @@
-function createPixelInBord() {
-  function createPixel() {
-    let pixelBoard = document.getElementById('pixel-board');
-    let square = document.createElement('section');
-    square.className = 'pixel';
-    pixelBoard.appendChild(square)
+function createPixel() {
+  let pixelBoard = document.getElementById('pixel-board');
+  let square = document.createElement('section');
+  square.className = 'pixel';
+  pixelBoard.appendChild(square);
+}
+let button = document.querySelector('#generate-board');
+
+// for (let index = 0; index < 25; index += 1) {
+//   // for(let index2 = 1; index2 < index; index2 += 1) {
+
+
+//   }
+  button.removeEventListener('click', pixelQuantitative)
+
+button.addEventListener('click', () => {
+  let input = document.querySelector('#board-size');
+  let pixel = document.getElementsByClassName('pixel');
+  let board = document.querySelector('#pixel-board')
+  if (input.value === '') {
+    alert("Board inválido!");
   }
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
-  createPixel();
+  if(input.value > 4 || input.value < 51)
+  for (let index = 0; index < input.value * input.value - 25; index += 1) {
+    createPixel1(colocaCorNosPixels())
+  }
+  if(input.value > 50)
+  for (let index = 0; index < 50 * 50 - 25; index += 1) {
+    createPixel1(colocaCorNosPixels())
+  }
+})
+
+function pixelQuantitative() {
+  let input = document.querySelector('#board-size');
+  let pixel = document.getElementsByClassName('pixel');
+  let button = document.querySelector('#generate-board');
+  let board = document.querySelector('#pixel-board')
+
+  function initial() {
+    for (let index = 1; index < 26; index += 1) {
+      createPixel();
+    }
+    board.style.width = "216px"
+  }
+  initial()
 
 }
-createPixelInBord();
+pixelQuantitative()
+
+function createPixel1() {
+  let pixelBoard = document.getElementById('pixel-board');
+  let square = document.createElement('section');
+  square.className = 'pixel';
+  pixelBoard.appendChild(square);
+}
 
 function classSelectedAddRemove() {
   function addAndRemoveClassSelected(event) {
@@ -86,7 +106,7 @@ function colocaCorNosPixels() {
   let colorTres = blue.style.backgroundColor = color2;
 
   let colorQuatro = green.style.backgroundColor = color3;
-  
+
   for (let index = 0; index < pixel.length; index += 1) {
     pixel[index].addEventListener('click', function (event) {
       if (black.classList.contains('selected')) {
@@ -129,8 +149,6 @@ colocaCorNosPixels()
 function clearBoard() {
   let clearBoard = document.querySelector('#clear-board');
   let pixel = document.getElementsByClassName('pixel');
-  // let backgroundWhite = document.getElementsByClassName('white');
-  // backgroundWhite.style.backgroundColor = 'white';
 
   clearBoard.addEventListener('click', function () {
     for (let index = 0; index < pixel.length; index += 1) {
@@ -162,23 +180,8 @@ function pixelAlturaLargura() {
         alturaLargura[index].style.height = parseInt(input.value) + 'px';
         alturaLargura[index].style.width = parseInt(input.value) + 'px';
       }
-      if (parseInt(input.value) > 4 && parseInt(input.value) < 11) {
-        createPixel();
-        createPixel();
-        createPixel();
-      }
-      if (parseInt(input.value) > 10 && parseInt(input.value) < 21) {
-        createPixel();
-        createPixel();
-      }
-      if (parseInt(input.value) > 20 && parseInt(input.value) < 31) {
-        createPixel();
-      }
-      if (input.value === '') {
-        alert("Board inválido!");
-      }
-
     }
   })
 }
 pixelAlturaLargura();
+
