@@ -11,21 +11,26 @@
 
 <body>
     <header>
-        <h1 id="title">Paleta de Cores</h1>
+        <h1 id="title"><span>Paleta de Cores</span></h1>
     </header>
-    <section id="color-palette">
-        <section class="color black selected"></section>
-        <section class="color red"></section>
-        <section class="color blue"></section>
-        <section class="color green"></section>
-    </section>
-    <div>
-        <button id="clear-board">Limpar</button>
-        <input type="number" id="board-size" min="1" max="50">
-        <button id="generate-board">VQV</button>
+    <div id="generate-palette-container">
+        <section id="color-palette">
+            <div class="color black-color selected"></div>
+            <div class="color secound-color"></div>
+            <div class="color third-color"></div>
+            <div class="color fourth-color"></div>
+            <div class="color white-color"></div>
+        </section>
+        <div id="clear-size-generate-container">
+            <button id="clear-board" class="btn fourth">Limpar</button>
+            <input type="number" id="board-size" min="1" max="50">
+            <button id="generate-board" class="btn second">VQV</button>
+        </div>
     </div>
     <main>
-        <section id="pixel-board"></section>
+        <div id="pixel-board-container">
+            <section id="pixel-board"></section>
+        </div>
     </main>
     <script src="./script.js"></script>
 </body>
